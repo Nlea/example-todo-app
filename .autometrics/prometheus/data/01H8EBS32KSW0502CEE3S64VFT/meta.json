@@ -1,0 +1,17 @@
+{
+	"ulid": "01H8EBS32KSW0502CEE3S64VFT",
+	"minTime": 1692688240470,
+	"maxTime": 1692691200000,
+	"stats": {
+		"numSamples": 6264,
+		"numSeries": 37,
+		"numChunks": 47
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01H8EBS32KSW0502CEE3S64VFT"
+		]
+	},
+	"version": 1
+}
