@@ -38,6 +38,7 @@ def put_todo_request(int = i):
 
 
 def main(num_requests):
+    print("Starting")
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
         for _ in range(num_requests):
@@ -57,8 +58,8 @@ def main(num_requests):
 
 if __name__ == "__main__":
     p = True
-    n = 100
+    n = 10
     while p == True:
-       time.sleep(3)
        results = main(n)
        print(results)
+       time.sleep(60)

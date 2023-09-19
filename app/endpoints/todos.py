@@ -15,25 +15,20 @@ router = APIRouter()
 def metrics():
     return Response(generate_latest())
 
-
-SLO_API = Objective(
-    "todo-api-success-rate",
-    success_rate=ObjectivePercentile.P99
+API_SLO = Objective(
+  "todo-api-success-rate",
+  success_rate=ObjectivePercentile.P99
 )
 
-SLO_Latency = Objective (
-    "latency-objective",
-    latency=(ObjectiveLatency.Ms250, ObjectivePercentile.P99)
-)
 
 @router.post("/todos")
-@autometrics(objective=SLO_API)
+@autometrics(objective=API_SLO)
 async def add_todo_endpoint(todo: Todo) -> dict:
     new_todo = add_todo(todo)
     return {"data": f"Todo with id {new_todo.id} has been added."}
 
 @router.get("/todos")
-@autometrics(objective=SLO_API)
+@autometrics(objective=API_SLO)
 async def get_todos_endpoint() -> dict:
     random_number = random.random()
     if random_number < 0.1: # You can change the number here to get a higher error ratio from your code
@@ -43,7 +38,7 @@ async def get_todos_endpoint() -> dict:
 
 
 @router.put("/todos/{id}")
-@autometrics(objective=SLO_API)
+@autometrics(objective=API_SLO)
 async def update_todo_endpoint(id: int, todo: Todo) -> dict:
     updated_todo = update_todo(id, todo) 
     return {

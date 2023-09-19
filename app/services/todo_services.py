@@ -1,9 +1,7 @@
 from app.models.todo import Todo
 from fastapi import HTTPException
 from autometrics import autometrics
-from fastapi import HTTPException
-import time
-import random
+
 
 
 todos = [
@@ -11,6 +9,7 @@ todos = [
     Todo(id=2, item="Walk the dog"),
     # ... other todos ...
 ]
+
 @autometrics
 def get_todos_successful():
     return {
