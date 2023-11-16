@@ -2,6 +2,7 @@ import random
 import requests
 import concurrent.futures
 import string
+import time
 
 
 todo_url = "http://localhost:8000/todos"
@@ -43,6 +44,7 @@ def generate_traffic(num_requests):
         futures = []
         for _ in range(num_requests):
             random_number = random.random()
+            time.sleep(1)
             if random_number > 0.9:
                 futures.append(executor.submit(put_todo_request))
             elif random_number < 0.4:
@@ -56,6 +58,6 @@ def generate_traffic(num_requests):
         return results
 p= True
 while p == True:
-    traffic_results = generate_traffic(100)
+    traffic_results = generate_traffic(500)
     print(traffic_results)
 

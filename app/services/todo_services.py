@@ -33,4 +33,6 @@ def update_todo(id: int, updated_todo: Todo)-> Todo:
             todo.item = updated_todo.item
             return todo
      else:
-         raise HTTPException(status_code=404, detail=f"Todo with id {id} not found")
+         print("Todo id doesn't exist")
+         return todo
+         #raise HTTPException(status_code=404, detail=f"Todo with id {id} not found")
