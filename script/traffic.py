@@ -2,6 +2,7 @@ import random
 import requests
 import concurrent.futures
 import string
+import time
 
 
 todo_url = "http://localhost:8000/todos"
@@ -56,6 +57,7 @@ def generate_traffic(num_requests):
         return results
 p= True
 while p == True:
-    traffic_results = generate_traffic(100)
+    traffic_results = generate_traffic(10)
+    time.sleep(10)
     print(traffic_results)
 
