@@ -9,11 +9,6 @@ from app.services.todo_services import get_todos_successful, get_todos_with_erro
 
 router = APIRouter()
 
-@router.get("/metrics")
-def metrics():
-    return Response(generate_latest())
-
-
 
 @router.post("/todos")
 
